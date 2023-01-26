@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-10 col-md-5 col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="myForm">
+          <div class="mb-3">
+            <input
+              formControlName="value1"
+              type="number"
+              class="form-control form-control-lg"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              formControlName="value2"
+              type="number"
+              class="form-control form-control-lg"
+            />
+          </div>
+
+          <div class="mb-3">
+            <select formControlName="operation" class="form-select" aria-label="Default select example">
+              <option selected disabled value="">
+                Selecciona la operación
+              </option>
+              <option value="+">Sumar</option>
+              <option value="-">Restar</option>
+              <option value="*">Multiplicar</option>
+              <option value="/">Dividir</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mt-5 col-sm-10 mt-md-0 col-md-6 col-lg-4">
+    <div class="alert alert-primary fs-1" role="alert">
+      {{ currentResult }}
+    </div>
+    <ul class="list-group">
+      <li *ngFor="let result of calculatorService.history" class="list-group-item">
+        {{ result }}
+      </li>
+    </ul>
+  </div>
+</div>
